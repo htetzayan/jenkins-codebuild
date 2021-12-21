@@ -1,0 +1,32 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::734131281465:role/eksctl-zayan-nodegroup-ng-1-NodeInstanceRole-1JXU71TCFMYK1
+      username: system:node:{{EC2PrivateDNSName}}
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::734131281465:role/CodeBuildKubectlRole
+      username: CodeBuildKubectlRole
+  mapUsers: |
+    []
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2021-11-28T14:56:03Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:mapRoles: {}
+        f:mapUsers: {}
+    manager: eksctl
+    operation: Update
+    time: "2021-11-28T14:56:03Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "19691"
+  uid: 6185e660-0541-457f-b10f-1ac2e72e0e3f
